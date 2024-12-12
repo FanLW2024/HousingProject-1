@@ -1,0 +1,34 @@
+--
+-- Use this script to create your database
+--
+-- 1. Connect to your remote instance of MySQL via MySQLShell
+--    \c cbcradio_bds2@cbcradio.org
+-- 2. At the mysql> prompt, navigate to your database
+--    use cbcradio_bds754_2;
+-- 3. Use the source command to execute this SQL script
+--    If your script is saved in the C:\temp folder
+--    > source C:\temp\databaseCreationScript.txt
+--
+
+-- NOTE: Change this to YOUR database
+USE cbcradio_bds754_2;
+
+-- This will delete the table if it exists.
+DROP TABLE IF EXISTS `housing`;
+
+CREATE TABLE housing
+               (
+                `id`                 int not null auto_increment primary key,
+                `guid`               char(32) not null,
+                `zip_code`           int not null,
+                `city`               char(32) not null,
+                `state`              char(2) not null,
+                `county`             char(32) not null,
+                `median_age`         int not null,
+                `total_rooms`        int not null,
+                `total_bedrooms`     int not null,
+                `population`         int not null,
+                `households`         int not null,
+                `median_income`      int not null,
+                `median_house_value` int not null
+               );
